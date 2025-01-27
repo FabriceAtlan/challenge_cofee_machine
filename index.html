@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Prototype de Machine à Café</title>
+</head>
+
+<body>
+  <script>
+    let order = null;
+    let isConfirmed = false;
+
+    while (isConfirmed === false) {
+      while (order !== "thé" && order !== "café") {
+        order = prompt("thé ou café ?");
+      }
+
+      order += confirm("sucre ?") ? " avec sucre" : " sans sucre";
+
+      if (confirm("lait ?")) {
+        if (confirm("végétal ?")) {
+          order += ", lait végétal";
+        } else {
+          order += ", lait de vache";
+        }
+      }
+
+      isConfirmed = confirm(`confirmer votre commande : ${order}`);
+    }
+
+    alert(`votre ${order} sera prêt dans une minute`);
+  </script>
+</body>
+
+</html>
